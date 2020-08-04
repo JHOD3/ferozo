@@ -5411,30 +5411,32 @@ INSERT INTO `cobranzas_permisos_acciones` (`cob_per_acc_id`, `cob_per_acc_descri
 -- Dumping data for table `cobranzas_permisos_tipos`
 --
 
-INSERT INTO `cobranzas_permisos_tipos` (`cob_per_tipo_id`, `cob_per_tipo_descripcion`) VALUES
-(1, 'Permisos'),
-(3, 'Documentación'),
-(4, 'About Products'),
-(5, 'About transport'),
-(6, 'About insurance'),
-(7, 'About payment'),
-(8, 'Exporter company'),
-(9, 'Shipper company (Type 1)'),
-(10, 'Shipper company (Type 4)'),
-(11, 'Collection company (Type 1)'),
-(12, 'Collection company (Type 3)'),
-(13, 'Collection company (Type 4)'),
-(14, 'Importer company'),
-(15, 'Broker company (Type 3)'),
-(16, 'Broker company (Type 4)'),
-(17, 'Consignee company'),
-(18, 'Notify company'),
-(19, 'Payer company (Type 2)'),
-(20, 'Payer company (Type 4)'),
-(21, 'Other company (Type 1)'),
-(22, 'Other company (Type 2)'),
-(23, 'Other company (Type 3)'),
-(24, 'Other company (Type 4)');
+INSERT INTO `cobranzas_permisos_tipos` (`cob_per_tipo_id`, `cob_per_tipo_descripcion`, `pal_id`) VALUES
+(1, 'Permisos', 773),
+(3, 'Documentación', 762),
+(4, 'About Products', 613),
+(5, 'About transport', 614),
+(6, 'About insurance', 615),
+(7, 'About payment', 616),
+(8, 'Exporter company', 617),
+(9, 'Shipper company (Type 1)', 621),
+(10, 'Shipper company (Type 4)', 621),
+(11, 'Collection company (Type 1)', 624),
+(12, 'Collection company (Type 3)', 624),
+(13, 'Collection company (Type 4)', 624),
+(14, 'Importer company', 618),
+(15, 'Broker company (Type 3)', 619),
+(16, 'Broker company (Type 4)', 619),
+(17, 'Consignee company', 622),
+(18, 'Notify company', 623),
+(19, 'Payer company (Type 2)', 625),
+(20, 'Payer company (Type 4)', 625),
+(21, 'Other company (Type 1)', 627),
+(22, 'Other company (Type 2)', 627),
+(23, 'Other company (Type 3)', 627),
+(24, 'Other company (Type 4)', 627),
+(25, 'About other services', 669),
+(26, 'About comisions', 656);
 
 --
 -- Dumping data for table `cobranzas_usuarios_tipos`

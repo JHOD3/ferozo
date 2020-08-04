@@ -306,7 +306,8 @@ CREATE TABLE `cobranzas` (
   `cob_codigo` varchar(255) NOT NULL,
   `cob_fecha_modif` timestamp NOT NULL,
   `cob_detalle_documentacion` text,
-  `cob_acciones_requeridas` text
+  `cob_acciones_requeridas` text,
+  `mon_code` varchar(3) NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -469,7 +470,7 @@ CREATE TABLE `cobranzas_otros_servicios` (
   `cob_otro_serv_id` int(11) UNSIGNED NOT NULL,
   `cob_id` int(11) UNSIGNED NOT NULL,
   `cob_otro_serv_descripcion` varchar(300) NOT NULL,
-  `cob_otro_serv_tipo` int(11) UNSIGNED NOT NULL,
+  `ara_id` int(11) UNSIGNED NOT NULL,
   `cob_otro_serv_fecha` date NOT NULL,
   `cob_otro_serv_calculo_importe` int(11) UNSIGNED NOT NULL,
   `cob_otro_serv_importe` double NOT NULL,
@@ -551,7 +552,8 @@ CREATE TABLE `cobranzas_permisos_acciones` (
 
 CREATE TABLE `cobranzas_permisos_tipos` (
   `cob_per_tipo_id` int(11) UNSIGNED NOT NULL,
-  `cob_per_tipo_descripcion` varchar(100) NOT NULL
+  `cob_per_tipo_descripcion` varchar(100) NOT NULL,
+  `pal_id` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
