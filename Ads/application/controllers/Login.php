@@ -41,7 +41,8 @@ class Login extends CI_Controller {
                 $this->session->set_userdata('ads_id', $user['usr_id']);
                 $this->session->set_userdata('usr_id', $user['usr_id']);
                 $this->session->set_userdata('idi_code', $user['idi_code']);
-                $this->session->set_userdata('ut_id', $user['ut_id']);
+                $this->session->set_userdata('ut_id', $user['tu_id']);
+                $this->session->set_userdata('tu_id', $user['tu_id']);
                 $this->session->set_userdata('usr_nombre', $user['usr_nombre']);
                 $this->session->set_userdata('usr_apellido', $user['usr_apellido']);
                 $this->session->set_userdata('usr_mail', $user['usr_mail']);
