@@ -1,0 +1,98 @@
+<IfModule mod_rewrite.c>
+    # activate URL rewriting
+    RewriteEngine on
+    RewriteCond $1 !^(index\.php|assets|img|css|js|robots\.txt|favicon\.ico)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+    # If we don't have mod_rewrite installed, all 404's
+    # can be sent to index.php, and everything works as normal.
+    ErrorDocument 404 index.php
+</IfModule> 
+
+
+# STRONG HTACCESS PROTECTION</code>
+<Files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</Files>
+
+# disable directory browsing
+Options All -Indexes
+
+# protect from sql injection
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+RewriteRule ^(.*)$ index.php [F,L]
+
+
+
+# Disable directory views
+<IfModule dir_module>
+	DirectoryIndex disabled
+	DirectoryIndex index.php
+</IfModule>
+
+# Add Vary header
+<IfModule mod_headers.c>
+	<FilesMatch "\.(css|js|gz|xml)$">
+		Header append Vary: Accept-Encoding
+	</FilesMatch>
+</IfModule>
+
+# Add Security Headers
+<IfModule mod_headers.c>
+	Header set X-XSS-Protection "1; mode=block"
+	Header always append X-Frame-Options SAMEORIGIN
+	Header set X-Content-Type-Options nosniff
+</IfModule>
+
+# Leverage browser caching
+<IfModule mod_expires.c>
+	ExpiresActive on
+	ExpiresDefault "access plus 1 month"
+	#
+	ExpiresByType image/jpg  "access plus 1 year"
+	ExpiresByType image/jpeg "access plus 1 year"
+	ExpiresByType image/gif  "access plus 1 year"
+	ExpiresByType image/png  "access plus 1 year"
+	ExpiresByType text/css   "access plus 1 month"
+	#
+	ExpiresByType text/javascript        "access plus 1 month"
+	ExpiresByType application/javascript "access plus 1 month"
+	ExpiresByType text/x-javascript      "access plus 1 month"
+	#
+	ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
+
+
+
+# Enable file compression
+<IfModule mod_deflate.c>
+	AddOutputFilter       DEFLATE css js
+	AddOutputFilterByType DEFLATE image/svg+xml image/x-icon
+	AddOutputFilterByType DEFLATE application/vnd.ms-fontobject application/x-font-ttf font/opentype
+	AddOutputFilterByType DEFLATE application/javascript application/x-javascript text/javascript text/x-js
+	AddOutputFilterByType DEFLATE text/html text/plain text/richtext text/css application/json text/xsd text/xsl
+	AddOutputFilterByType DEFLATE text/xml text/x-component application/xml application/xhtml+xml application/rss+xml application/atom+xml
+</IfModule>
+
+
+# Disable ETags
+<IfModule mod_headers.c>
+	Header unset ETag
+</IfModule>
+FileETag None
+
+
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_HOST} ^(www\.)(.*) [NC]
+    RewriteRule (.*) https://%2%{REQUEST_URI} [R=301,L]
+</IfModule>
