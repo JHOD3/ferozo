@@ -378,7 +378,10 @@ function buscar()
 
 }
 
-buscar();
+			if("<?=(!isset($this->session))?>")
+              {
+				buscar();
+			  }	
 </script>
 
 </body>
