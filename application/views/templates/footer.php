@@ -50,6 +50,35 @@
   </div>
 </div>
 
+<!-- Modal suspendido -->
+<div class="modal fade" id="23d" tabindex="-1" role="dialog" aria-labelledby="pasoTresLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+					<h4 class="modal-title"><?=mostrar_palabra(1004, $palabras)?></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+					<div id="result_eliminar"></div>
+					<div class="container-fluid">
+					<h5><?=mostrar_palabra(1005, $palabras)?></h5>
+					<form id="form_pasoDos" class="form-horizontal" role="form" action="#">
+						</form>
+					</div>	
+                </div>
+                <div class="modal-footer">
+				<div class="row">
+					<div class="col-md-6">
+						<button type="button" class="btn btn-default bt-activa pull-rigth"><?=mostrar_palabra(932, $palabras)?></button>
+					</div>
+					<div class="col-md-6">
+						<button type="button" class="btn btn-google-plus bt-salir pull-left"><?=mostrar_palabra(1006, $palabras)?></button>
+					</div>					
+				</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 <script src="<?=base_url()?>assets/js/jquery-1.11.3.min.js"></script>
@@ -89,6 +118,48 @@ if($this->session->userdata('idi_code') == 'ar')
 
 <?php
 $this->load->view("templates/acceso");
+?>
+
+
+<?php	
+if ($this->notificaciones_model->get_cta_suspendida($this->session->userdata('usr_id'))==true){
+		echo "<script>
+			let refrescar_obligatorio = true;
+			$('#23d').modal('show');
+		
+			$(document).on('hide.bs.modal','#23d', function () {
+				if (refrescar_obligatorio==true){
+						location. reload();
+					}
+			});
+			
+			
+			$('.bt-activa').click(function(){
+				$.post('". base_url()."faq/retiro_motivo_activar',{
+				}).done(function(resp){
+					let data = JSON.parse(resp);
+							if(data.code=='200'){
+								refrescar_obligatorio=false;
+								$('#23c').modal('hide');
+								 location. reload();
+							}else{
+								$('#result_suspender').html('<div class=\"alert alert-danger\">'+data.message+'</div>');
+							}
+				}).fail(function() {
+				});		
+			});	
+			
+			$('.bt-salir').click(function(){
+				refrescar_obligatorio=false;
+				$('#23c').modal('hide');
+				window.location.href=\"".base_url()."/login/logout/\"; 
+			});						
+		</script>";	
+}	
+
+
+
+
 ?>
 
 <script type="text/javascript">

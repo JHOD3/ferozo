@@ -1,0 +1,13 @@
+/*04/09/2020*/
+//para informacion de retiro voluntario del usuario
+
+CREATE TABLE `usuarios_retiros` (
+  `id`  int(11) NOT NULL AUTO_INCREMENT,
+  `usr_id` int(11) NOT NULL,
+  `fecha_proceso` datetime NOT NULL,
+  `pal_id` int(11) NULL,
+  `comentarios_usuario` varchar(300) NULL,
+  `estado` ENUM('Suspender', 'Eliminar') NOT NULL DEFAULT 'Suspender',
+  `activo` ENUM('Si', 'No') NOT NULL DEFAULT 'No',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1

@@ -71,7 +71,6 @@ if(isset($conversion)) echo $conversion;
     </div>
   </div>
 </div>
-
 <?php
 $this->load->view('templates/menu_footer');
 $this->load->view('templates/footer');
