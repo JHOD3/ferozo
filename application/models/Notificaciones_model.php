@@ -188,17 +188,5 @@ class Notificaciones_model extends CI_Model {
         $this->db->where(array('not_id'=>$not_id));
         return $this->db->delete('notificaciones');
     }
-	
-		/*robert 04/09/2020*/
-	function get_cta_suspendida($usr_id){
-		$usr_id=($usr_id=="") ?0:$usr_id;
-        $query = $this->db->query("SELECT * FROM usuarios_retiros WHERE usr_id = $usr_id and activo = 'Si' and estado='Suspender' LIMIT 1");
-        return ($query->num_rows() > 0) ? true:false;
-    }
-	/*robert 04/09/2020*/
-
-	
-	
-	
 
 }

@@ -56,10 +56,6 @@ class Resultados extends CI_Controller {
 	{
 		$data['palabras'] = $this->palabras_model->get_items($this->session->userdata('idi_code'));
 		//$data['resultados'] = $this->resultados_model->get_items($this->session->userdata('idi_code'), $this->session->userdata('usr_id'));
-		
-		if (!empty($this->session->userdata('search'))){
-			$data= $this->highlightWords($data, $this->session->userdata('search'));
-		} 
 
 		$this->load->view(self::$solapa.'/otros', $data);
 	}
@@ -163,14 +159,7 @@ class Resultados extends CI_Controller {
 		$data['favorito'] = $this->favoritos_model->buscar_usuario_favorito($this->session->userdata('usr_id'), $data['producto']['usr_id']);
 
 		$this->productos_model->set_item_visitado($prod_id, $this->session->userdata('usr_id'));
-		
-		/*$texto_final=json_encode($data);
-		$texto_final = !empty($this->session->userdata('search'))?$this->highlightWords($texto_final, $this->session->userdata('search')):$texto_final;
-		$data=json_decode($texto_final, true);*/
 
-		if (!empty($this->session->userdata('search'))){
-			$data= $this->highlightWords($data, $this->session->userdata('search'));
-		} 
 		$this->load->view(self::$solapa.'/view', $data);
 	}
 
@@ -202,14 +191,6 @@ class Resultados extends CI_Controller {
 		$data['favorito'] = $this->favoritos_model->buscar_usuario_favorito($this->session->userdata('usr_id'), $data['producto']['usr_id']);
 
 		$this->productos_model->set_item_visitado($prod_id, $this->session->userdata('usr_id'));
-		
-		if (!empty($this->session->userdata('search'))){
-			$data= $this->highlightWords($data, $this->session->userdata('search'));
-		} 
-		
-		if (!empty($this->session->userdata('search'))){
-			$data= $this->highlightWords($data, $this->session->userdata('search'));
-		} 
 
 		$this->load->view(self::$solapa.'/view_otro', $data);
 	}
@@ -329,10 +310,7 @@ class Resultados extends CI_Controller {
 			}
 		}
 		$data['result'] = $resultados;
-
-		if (!empty($this->session->userdata('search'))){
-			$data= $this->highlightWords($data, $this->session->userdata('search'));
-		} 
+		//print_r($data);
 		echo json_encode($data);
 	}
 
@@ -464,16 +442,5 @@ class Resultados extends CI_Controller {
 
 		echo json_encode($data);
 	}
-	
-	/*robert*/
-	//Funcion para resaltar el texto
-	function highlightWords($text, $word){
-		$isarray=is_array($text);
-		$text = ($isarray==true) ? json_encode($text) : $text;
-	    $text = preg_replace('#'. preg_quote($word) .'#i', '<span style=\"background-color: #F9F902;\">\0</span>', $text);
-		$text = ($isarray==true) ? json_decode($text,true) : $text;
-		return $text;
-	}
-	/*robert*/	
 
 }

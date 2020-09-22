@@ -339,7 +339,7 @@ a:hover, a:focus { color: #e0103a; }
 
 .content { 
 	position: relative; 
-	z-index: 999; 
+	/*z-index: 999; */
 	margin-bottom: 40px;
 	margin-left: 250px;
 	padding: 80px 30px 20px 20px;
@@ -1768,3 +1768,303 @@ RESPONSIVE
 
 }
 
+
+/*add new css*/
+.plan-outer{
+    margin-top: 30px;
+   
+    border-radius: 15px;
+    padding: 20px 15px;
+}
+.page-headding h2{
+    font-size: 30px;
+    font-weight: bold;
+}
+.plan-outer .nav-tabs li a{
+    border: unset;
+    font-size: 16px;
+    font-weight: 700;
+}
+.plan-outer .nav-tabs li:hover a{
+    border: unset;
+}
+.plan-outer .nav-tabs li.active a{
+    border: unset;
+    border-bottom: 2px solid;
+    border-radius: 2px;
+}
+
+.tab-content{
+    margin: 15px 0;
+}
+.row-col-outer{
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+}
+.content-row{
+    width: 100%;
+}
+/* .payment-total-inner{
+    position: fixed;
+} */
+
+.payment-col{
+	border: 1px solid #ddd;
+	padding: 15px;
+	color: #fff !important;
+	background-image: linear-gradient(to right, #990033 , #f85032);
+	border-radius: 4px;
+}
+.payment-col-top{margin-bottom: 10px; }
+
+.payment-col h3, .payment-col p{
+    margin: 0;
+}
+.payment-col p{
+    margin-top: 8px;
+    font-size: 16px;
+    color: #fff !important;
+}
+.payment-col span{
+    font-weight: bold;
+    color: #fff !important;
+}
+.payment-col-total{
+    font-weight: bold;
+    font-size: 20px !important;
+}
+.payment-col button{
+	padding: 12px 22px;
+	margin-top: 25px;
+	margin-bottom: 15px;
+	color: #be121b;
+	font-size: 18px;
+	font-weight: 900;
+	background-color: #fff;
+}
+.payment-col-sec{
+    margin-top: 15px;
+}
+
+.payment-col-sec p span{
+    color: #990033 !important;
+}
+.payment-col p a{
+    color: #fff !important;
+}
+
+button.btn.btn-primary.col-btn {
+    background: #f85032;
+    border: #f85032;
+    border-color: #ffffff;
+}
+
+button.btn.btn-primary.col-btn-white{
+    background:#fff;
+    color:#e13a18;
+    font-weight: bold;
+    border-color: #ffffff;
+}
+.standard-row-bg-col
+{
+    background-image: linear-gradient(to right, #990033 , #f85032);
+    border-radius: 10px;
+}
+.row-col-outer.standard-row-bg-col .content-row h2, .row-col-outer.standard-row-bg-col .content-row p{
+    color:#fff;
+}
+
+button.btn.btn-primary.colr-btn-sec1 {
+    background: #fff;
+    border: #fff;
+    color: #f85032;
+}
+
+.content-row select, .content-row input{
+    width: 120px;
+    padding: 5px 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+}
+.content-row input{
+    width: 492px;
+    padding: 7px 5px;
+}
+.content-row input.sec-input{
+    width: auto;
+}
+
+
+/* Mdal Css */
+.modal-header{
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px 0px #2b33386b;
+}
+.close{
+    font-size: 30px;
+}
+.modal-header .close{
+    margin-left: auto;
+}
+.modal-col-outer{
+    display: flex;
+    align-items: baseline;
+    border-radius: 5px;
+    padding: 13px 15px 0px;
+    cursor: pointer;
+    margin-top: 15px;
+    background-color: #CCC;
+}
+.modal-grey{
+    background: #dddddd;
+}
+.modal-col-block1{
+    background-image: linear-gradient(to right, #990033 , #f85032);
+    color:#fff;
+}
+
+.modal-col-block1 .modal-col p,
+.modal-col-block1 .modal-col h2{
+	color: #fff;
+}
+
+.modal-col-block1 .modal-col p a{
+	color: #fff;
+}
+
+.modal-col{
+    font-weight: normal;
+    margin-left: 8px;
+    cursor: pointer;
+    width: 100%;
+}
+.modal-col h2{
+    font-weight: bold;
+}
+.modal-col-2 span {
+	color: #f85032;
+	float: right;
+	font-size: 12px;
+	background: #fff;
+	height: 90px;
+	width: 90px;
+	border-radius: 50%;
+	padding: 15px 30px !important;
+}
+.modal-col-1 span {
+    color: #f85032;
+    float: right;
+    font-size: 14px;
+    background: #fff;
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    padding: 25px 20px !important;
+}
+.modal-col h2, .modal-col p{
+    margin: 0;
+}
+.modal-col p{
+    margin: 10px 0;
+}
+.modal-conditon-col{
+    margin: 15px 0;
+}
+.modal-conditon-col p{
+    margin: 0;
+}
+.modal-conditon-col p:nth-child(2){
+    margin-top: 15px;
+}
+
+.custom-dialog{
+    width: 740px;
+}
+.third-modal-outer{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.modal-col img{
+    width: 40px;
+    margin-right: 2px;
+}
+.modal-first-row, .modal-sec-row{
+    border: unset;
+}
+.modal-four-row label, 
+.mdal-field label{
+    margin-bottom: 0;
+    font-size: 13px;
+}
+.mdal-field label{
+    margin-top: 15px;
+}
+.modal-four-row {
+    width: 100%;
+    justify-content: space-around;
+}
+.modal-four-row input{
+    width: 140px;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    outline: unset;
+}
+.mdal-field input,
+.mdal-field select{
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    outline: unset;
+    width: 100%;
+}
+.mdal-field select{
+    width: 450px;
+}
+.mdal-inner-col h4{
+    text-align: center;
+}
+.four-mdl label{
+    font-weight: normal;
+}
+.mdal-inner-col h3{
+    font-size: 20px;
+    margin: 20px 0 0;
+}
+
+.scr-mdl-5{
+    width: 100%;
+}
+.mdal-field-sec{
+    width: 48%;
+}
+
+.modal-button{
+    text-align: right;
+}
++
+.modal-col-white h2 small {
+    color: #fff;
+}
+.modal-close-btn{
+    margin-left: auto;
+    font-size: 16px;
+    padding: 12px 45px;
+    margin-left: 15px;
+    color: #f85032;
+}
+.custom-mdl-btn{
+    text-align: center;
+    line-height: 60px;
+}
+.custom-mdl-btn-sec{
+    margin-top: 30px;
+}
+.help-error{
+	color: red;
+}

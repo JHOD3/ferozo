@@ -1,5 +1,5 @@
 <?php
-$pal_ids = array(247, 36, 38, 290, 8, 82, 84, 86, 339, 294, 57, 240, 45, 18, 505,1004,1005,1006,932);
+$pal_ids = array(247, 36, 38, 290, 8, 82, 84, 86, 339, 294, 57, 240, 45, 18, 505);
 $palabras_header = $this->palabras_model->get_items_especificos($this->session->userdata('idi_code'), $pal_ids);
 ?>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -121,7 +121,7 @@ $palabras_header = $this->palabras_model->get_items_especificos($this->session->
         }
         ?>
         <hr style="margin:0px;"></hr>
-        <li><a href="<?=site_url('resultados/otros')?>"><?=mostrar_palabra(339, $palabras_header)?></a>11111</li>
+        <li><a href="<?=site_url('resultados/otros')?>"><?=mostrar_palabra(339, $palabras_header)?></a></li>
         <li><a href="<?=site_url('foro')?>"><?=mostrar_palabra(294, $palabras_header)?></a></li>
         <li><a href="<?=site_url('estadisticas')?>"><?=mostrar_palabra(57, $palabras_header)?></a></li>
         <li><a href="<?=site_url('estadisticas/index_productos')?>"><?=mostrar_palabra(240, $palabras_header)?></a></li>
@@ -134,6 +134,3 @@ $palabras_header = $this->palabras_model->get_items_especificos($this->session->
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-
-
