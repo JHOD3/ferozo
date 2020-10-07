@@ -124,8 +124,11 @@ class Login extends CI_Controller {
         $this->form_validation->set_rules('clave2', mostrar_palabra(6, $palabras).' '.mostrar_palabra(5, $palabras), 'trim|required|matches[clave]');
         $this->form_validation->set_rules('pais', mostrar_palabra(2, $palabras), 'required');
         $this->form_validation->set_rules('idioma', mostrar_palabra(3, $palabras), 'required');
-        $this->form_validation->set_rules('acepto', mostrar_palabra(170, $palabras), 'required');
-
+        $this->form_validation->set_rules('acepto', mostrar_palabra(172, $palabras), 'required');
+        if ($this->form_validation->set_rules('acepto', mostrar_palabra(172, $palabras), 'required')) {
+            $this->form_validation->set_message('required', '{field}');
+        }
+       
         if ($this->form_validation->run() !== FALSE)
         //if($this->input->post('mail') != "" && $this->input->post('clave') != "")
         {
@@ -206,6 +209,7 @@ class Login extends CI_Controller {
         }
         else
         {
+            
             $return['error'] = TRUE;
             $return['data'] = validation_errors();
         }

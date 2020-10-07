@@ -5,7 +5,7 @@ $palabras_footer = $this->palabras_model->get_items_especificos($this->session->
 <footer id="footer" class="">
 	<section class="container">
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-8 font14-px">
 				<!--<h2>Secciones</h2>-->
 				<?php
 				if($this->session->userdata('usr_id') == "")
@@ -33,13 +33,23 @@ $palabras_footer = $this->palabras_model->get_items_especificos($this->session->
 				}
 				echo ' 2016-'.date('Y').' - Sistema LLC - '.mostrar_palabra(287, $palabras_footer);
 				?>
-				<br><br class="visible-lg"><br class="visible-lg">
+                
+                <div class="pt-5 pb-3 row">
+                    <a href="" class="col-6 col-md-2">
+                        <embed src="<?=base_url()?>assets/images/google-play.svg" class="mx-auto d-block" type="">
+                    </a>
+                   <a href=""  class="col-6 col-md-2" >
+                        <embed src="<?=base_url()?>assets/images/app-store.svg" class="mx-auto d-block" type="">
+                   </a>
+                </div>
 			</div>
-			<div class="col-md-4 text-right hidden-xs">
-				<img src="<?=base_url('assets/images/logo-footer.png')?>" alt="Sistema" style="margin-bottom:10px;">
+			<div class="col-md-4 text-right hidden-xs ">
+				<img src="<?=base_url('assets/images/logo-footer.png')?>" alt="Sistema" class="mx-auto d-block" style="margin-bottom:10px;">
 				<br>
-				<img src="<?=base_url('assets/images/2.png')?>" alt="" style="margin-right:10px;">
-				<img src="<?=base_url('assets/images/3.png')?>" alt="">
+				<div class="mx-auto d-flex">
+                    <img src="<?=base_url('assets/images/2.png')?>" alt="" class="mx-auto mr-md-2  d-block">
+                    <img src="<?=base_url('assets/images/3.png')?>" alt="" class="mx-auto ml-md-2 d-block">
+                </div>
 			</div>
 		</div>	
 	</section>
