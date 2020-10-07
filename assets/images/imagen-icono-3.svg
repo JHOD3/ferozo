@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="205.668" height="205.668" viewBox="0 0 205.668 205.668">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.851" y1="0.5" x2="0.265" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#b00035"/>
+      <stop offset="0.272" stop-color="#b20230"/>
+      <stop offset="0.55" stop-color="#b90b24"/>
+      <stop offset="0.831" stop-color="#c41a10"/>
+      <stop offset="1" stop-color="#ce2600"/>
+    </linearGradient>
+  </defs>
+  <g id="Grupo_953" data-name="Grupo 953" transform="translate(-748.884 -2299.133)">
+    <circle id="Elipse_3" data-name="Elipse 3" cx="89.634" cy="89.634" r="89.634" transform="translate(748.884 2476.085) rotate(-80.783)" fill="url(#linear-gradient)"/>
+    <g id="Grupo_72" data-name="Grupo 72" transform="translate(-3116.356)">
+      <path id="Trazado_130" data-name="Trazado 130" d="M4011.157,2440.75c-.426-26.937-3.945-34.611-30.864-39.47,0,0-3.79,4.828-12.621,4.828s-12.624-4.828-12.624-4.828c-26.625,4.806-30.358,12.367-30.849,38.595-.038,2.14-.058,2.253-.065,2,0,.469,0,1.331,0,2.832,0,0,6.409,12.92,43.535,12.92s43.531-12.92,43.531-12.92c0-.964,0-1.636,0-2.093a18.359,18.359,0,0,1-.048-1.866Zm0,0" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3"/>
+      <path id="Trazado_131" data-name="Trazado 131" d="M3967.672,2399.131c12.728,0,23.049-12.534,23.049-28s-3.388-28-23.049-28-23.051,12.534-23.051,28,10.319,28,23.051,28Zm0,0" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3"/>
+    </g>
+  </g>
+</svg>
