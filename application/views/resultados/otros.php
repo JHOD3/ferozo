@@ -128,12 +128,6 @@ $(document).ready(function() {
 
 function buscar()
 {
-		/*robert correciones*/
-		if("<?=(!isset($this->session))?>")
-				return;
-		}
-		/*robert correciones*/
-	
   $('#loading').show();
 
     $.ajax({

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="205.668" height="205.668" viewBox="0 0 205.668 205.668">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.851" y1="0.5" x2="0.265" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#b00035"/>
+      <stop offset="0.272" stop-color="#b20230"/>
+      <stop offset="0.55" stop-color="#b90b24"/>
+      <stop offset="0.831" stop-color="#c41a10"/>
+      <stop offset="1" stop-color="#ce2600"/>
+    </linearGradient>
+  </defs>
+  <g id="Grupo_952" data-name="Grupo 952" transform="translate(-481.106 -2299.133)">
+    <circle id="Elipse_2" data-name="Elipse 2" cx="89.634" cy="89.634" r="89.634" transform="translate(481.106 2476.085) rotate(-80.783)" fill="url(#linear-gradient)"/>
+    <g id="Grupo_71" data-name="Grupo 71" transform="translate(-3116.356)" style="mix-blend-mode: screen;isolation: isolate">
+      <path id="Trazado_128" data-name="Trazado 128" d="M3759.708,2430.907h-3.642v-64.145a7.469,7.469,0,0,0-7.461-7.461h-98.618a7.47,7.47,0,0,0-7.461,7.461v64.145h-3.642a1.817,1.817,0,0,0-1.816,1.817v2.173a9.748,9.748,0,0,0,9.736,9.737h104.984a9.748,9.748,0,0,0,9.736-9.737v-2.173A1.816,1.816,0,0,0,3759.708,2430.907Zm-113.551-64.145a3.835,3.835,0,0,1,3.83-3.83H3748.6a3.834,3.834,0,0,1,3.829,3.83v63.992H3646.157Zm64.758,67.777v1.416h-23.239v-1.416Zm46.978.358a6.112,6.112,0,0,1-6.1,6.1H3646.8a6.112,6.112,0,0,1-6.1-6.1v-.358h43.346v3.231a1.816,1.816,0,0,0,1.816,1.816h26.87a1.817,1.817,0,0,0,1.817-1.816v-3.231h43.345Z" fill="#fff" stroke="#000" stroke-miterlimit="10" stroke-width="0.701"/>
+      <path id="Trazado_129" data-name="Trazado 129" d="M3744.1,2366.384h-89.6a5.377,5.377,0,0,0-5.371,5.37v31.791a.77.77,0,0,1,0,.6v21.566a1.816,1.816,0,0,0,1.816,1.816h96.711a1.817,1.817,0,0,0,1.817-1.816v-53.958A5.377,5.377,0,0,0,3744.1,2366.384Zm1.738,57.513h-93.079v-19.751a.77.77,0,0,1,0-.6v-31.791a1.741,1.741,0,0,1,1.739-1.739h89.6a1.741,1.741,0,0,1,1.738,1.739Z" fill="#fff" stroke="#000" stroke-miterlimit="10" stroke-width="0.701"/>
+    </g>
+  </g>
+</svg>

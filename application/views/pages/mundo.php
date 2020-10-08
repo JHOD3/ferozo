@@ -3,17 +3,7 @@
 
 <?php
 $this->load->view('templates/head');
-/*robert*/
-$pal_ids = array(93, 0, 2, 3, 4, 5, 6, 41, 1, 94, 95, 96, 97, 98, 99, 171);
-$palabras_header = $this->palabras_model->get_items_especificos($this->session->userdata('idi_code'), $pal_ids);
-
-/*robert*/
 ?>
-<style>
-.modal .modal-dialog .modal-content{  background-color: #B00035; }
-.modal .modal-dialog .modal-content .modal-header{  background-color: #B00035; }
-.modal .modal-dialog .modal-content .modal-footer{  background-color: #ce2600; }
-</style>
 
 <body>
 
@@ -63,177 +53,9 @@ $this->load->view('pages/header2');
 
 </main>
 
-<!-- Modal -->
-<div class="modal fade" id="modal_registro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" id="area_registro" role="document">
-  <form id="form_registro" class="form-horizontal" role="form" action="#">
-    <div class="modal-content">
-	 <div class="modal-header">
-        <h5 class="modal-title" style="color:#FFFFFF" id="titleModalLabel"><?=mostrar_palabra(97, $palabras_header)?></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" >
-        <!-- row -->
-		<div class="row">
-				<div id="result_login"></div>
-				
-				<div class="container-fluid">
-				<div class="form-group">
-					<div class="col-md-6 pull-left"><select class="form-control input" name='pais' id="pais_registro">
-															<?php
-															echo "<option value='' selected disabled style='display:none;'>".mostrar_palabra(2, $palabras_header)."</option>";
-															foreach ($paises as $key => $pais)
-															{
-																echo "<option value='".$pais['ctry_code']."'>".$pais['ctry_nombre']."</option>";
-															}
-															?>
-														</select></div>
-					<div class="col-md-6 pull-right">
-					<select class="form-control input" name='idioma' id="idioma_registro">
-									<?php
-									echo "<option value='' selected disabled style='display:none;'>".mostrar_palabra(3, $palabras_header)."</option>";
-									foreach ($idiomas as $key => $idioma)
-									{
-										if($this->session->userdata('idi_code') == $idioma['idi_code'])
-				                          $selected = "selected";
-				                        else
-				                          $selected = "";
-										echo "<option value='".$idioma['idi_code']."' ".$selected.">".ucfirst($idioma['idi_desc'])."</option>";
-									}
-									?>
-								</select>
-					</div>
-				</div>	
-					<div class="form-group">
-							<div class="col-sm-12">
-								<input type="text" class="form-control input" name="mail" placeholder="<?=mostrar_palabra(4, $palabras_header)?>">
-							</div>
-					</div>
-				<div class="form-group">
-							<div class="col-sm-6">
-								<input type="password" class="form-control input" name="clave" placeholder="<?=mostrar_palabra(5, $palabras_header)?>">
-							</div>
-							<div class="col-sm-6">
-								<input type="password" class="form-control input" name="clave2" placeholder="<?=mostrar_palabra(6, $palabras_header)?> <?=mostrar_palabra(5, $palabras_header)?>">
-							</div>
-				</div>
-		   
-				<div class="form-group">
-							<div class="col-sm-12">
-							<div class="checkbox">
-								    <label>
-								    	<input type="checkbox" name="acepto"> <a href="<?=site_url()?>pages/servicio" style="color:#FFFFFF"><?=mostrar_palabra(171, $palabras_header)?></a>
-								    </label>
-								</div>
-							</div>
-				</div>
-		  
-		  </div>
-				
-
-				
-		</div>	<!--row -->
-      </div>
-	 <div class="modal-footer">
-				<div class="form-group col-sm-12">
-				<button type="submit" id="btn_registro" class="btn btn-default pull-left" data-loading-text="<?=mostrar_palabra(41, $palabras_header)?>..."><?=mostrar_palabra(0, $palabras_header)?></button>
-				<a href="javascript: validar_google();" id="btn_registro_google" class="btn btn-google-plus pull-left" data-loading-text="<?=mostrar_palabra(41, $palabras_header)?>..."><i class="fab fa-lg fa-google-plus-square"></i> <?=mostrar_palabra(0, $palabras_header)?></a>
-				</div>
-				<div class="form-group text-left">
-					<p class="col-xs-12 small" style="color:#FFFFFF"><?=mostrar_palabra(98, $palabras_header)?> <a class="bt-login" href="#" style="color:#FFFFFF"><?=mostrar_palabra(99, $palabras_header)?></a></p>
-				</div>	
-	 </div>
-    </div>
-	</form>
-  </div>
-</div>
-
-
-<!--area_olvide-->
-<div class="modal fade" id="modal_olvide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" id="area_olvide" role="document">
-  <form id="form_olvide" class="form-horizontal" role="form" action="#">
-    <div class="modal-content">
-	 <div class="modal-header">
-        <h5 class="modal-title" style="color:#FFFFFF" id="titleModalLabel"><?=mostrar_palabra(97, $palabras_header)?></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" >
-        <!-- row -->
-		<div class="row">
-				<div class="container-fluid">
-				<div class="form-group">
-					<div class="col-md-12 pull-left">
-						<input type="text" class="form-control input" name="mail" placeholder="<?=mostrar_palabra(4, $palabras_header)?>">
-					</div>
-				</div>	
-		  </div>
-		</div>	<!--row -->
-      </div>
-	 <div class="modal-footer">
-				<div class="form-group col-sm-12">
-					<button type="submit" id="btn_olvide" class="btn btn-default pull-left" data-loading-text="<?=mostrar_palabra(41, $palabras_header)?>..."><?=mostrar_palabra(6, $palabras_header)?></button>
-				</div>
-				<div class="form-group">
-					<div class="col-md-12 text-left">
-						<p class="small" style="color:#FFFFFF"><?=mostrar_palabra(96, $palabras_header)?> <a class="bt-registro" href="#" style="color:#FFFFFF"><?=mostrar_palabra(97, $palabras_header)?></a></p>
-					</div>	
-				</div>
-	 </div>
-    </div>
-	</form>
-  </div>
-</div>
-
-<!--area_login-->
-<div class="modal fade" id="modal_login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" id="area_login" role="document">
-  <form id="form_login" class="form-horizontal" role="form" action="#">
-    <div class="modal-content">
-	 <div class="modal-header">
-        <h5 class="modal-title" style="color:#FFFFFF" id="titleModalLabel"><?=mostrar_palabra(97, $palabras_header)?></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" >
-        <!-- row -->
-		<div class="row">
-				<div class="container-fluid">
-				<div class="form-group">
-					<div class="col-md-6 pull-left">
-						<input type="text" class="form-control input" name="mail" placeholder="<?=mostrar_palabra(4, 	$palabras_header)?>">
-					</div>
-					<div class="col-md-6 pull-right">
-						<input type="password" class="form-control input" name="clave" placeholder="<?=mostrar_palabra(5, $palabras_header)?>">
-					</div>
-				</div>	
-		  </div>
-		</div>	<!--row -->
-      </div>
-	 <div class="modal-footer">
-				<div class="form-group col-sm-12">
-					<button type="submit" id="btn_login" class="btn btn-default pull-left" data-loading-text="<?=mostrar_palabra(41, $palabras_header)?>..."><?=mostrar_palabra(1, $palabras_header)?></button>
-					<a href="javascript: validar_google();" id="btn_registro_google" class="btn btn-google-plus pull-left" data-loading-text="<?=mostrar_palabra(41, $palabras_header)?>..."><i class="fab fa-lg fa-google-plus-square"></i> <?=mostrar_palabra(1, $palabras_header)?></a>
-				</div>
-					<div class="form-group col-md-12 text-left">
-						<p class="small" style="color:#FFFFFF"><?=mostrar_palabra(94, $palabras_header)?> <a class="bt-olvide" href="#" style="color:#FFFFFF"><?=mostrar_palabra(95, $palabras_header)?></a></p>
-						<p class="small" style="color:#FFFFFF"><?=mostrar_palabra(96, $palabras_header)?> <a class="bt-registro" href="#" style="color:#FFFFFF"><?=mostrar_palabra(97, $palabras_header)?></a></p>
-					</div>	
-	 </div>
-    </div>
-	</form>
-  </div>
-</div>
-
 <?php
 $this->load->view('templates/menu_footer');
 $this->load->view('templates/footer');
-$this->load->view('pages/header_scripts');
 ?>
 
 <script type="text/javascript" src="<?=base_url()?>assets/js/jquery.easy-pie-chart.js"></script>
@@ -354,8 +176,7 @@ function buscar_accesos()
                 position: new google.maps.LatLng(acceso.acc_lat, acceso.acc_lng)
             });
             marker.addListener('click', function() {
-              //location.href = SITE_URL;
-			  mostrar_login();
+              location.href = SITE_URL;
             });
             markers.push(marker);
             /*
@@ -417,45 +238,6 @@ if($('.percentage').length)
       }
     });
   }
-  
-  function mostrar_login()
-{
-	$('#modal_registro').modal('show');
-}
-
-$(document).ready(function () {
-		  var loginBtn = $('.bt-login'),
-		  registroBtn = $('.bt-registro'),
-		  olvideBtn = $('.bt-olvide');
-
-		  registroBtn.click(function(e){
-			  e.preventDefault();
-				$('#modal_registro').modal('show');
-				$('#modal_login').modal('hide');
-				$('#modal_olvide').modal('hide');
-				$("#result_login" ).remove();
-				$('#modal_registro .modal-content .modal-body').before('<div id="result_login"></div>')
-			});
-			olvideBtn.click(function(){
-				$('#modal_registro').modal('hide');
-				$('#modal_login').modal('hide');
-				$('#modal_olvide').modal('show');
-				$( "#result_login" ).remove();
-				$('#modal_olvide .modal-content .modal-body').before('<div id="result_login"></div>')
-			});
-		loginBtn.click(function(){
-				$('#modal_registro').modal('hide');
-				$('#modal_login').modal('show');
-				$('#modal_olvide').modal('hide');
-				$("#result_login" ).remove();
-				$('#modal_login .modal-content .modal-body').before('<div id="result_login"></div>')
-		});
-
-  //$('div.setup-panel div a.btn-primary').trigger('click');
-	});
-
-
-  
 </script>
 
 </body>

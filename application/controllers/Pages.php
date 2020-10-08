@@ -57,7 +57,7 @@ class Pages extends CI_Controller {
 		$data['idiomas_completos'] = $this->idiomas_model->get_items_completos();
 		$data['paises'] = $this->paises_model->get_items($this->session->userdata('idi_code'));
 		//$data['palabras'] = $this->palabras_model->get_items($this->session->userdata('idi_code'));
-		$pal_ids = array(118, 52, 53, 54, 55, 107, 50, 51, 93, 119, 482, 493, 339, 56, 24, 23, 274, 243, 19, 20, 21, 22);
+		$pal_ids = array(118, 52, 53, 54, 55, 107, 50, 51, 93, 119, 482, 493, 339, 56, 24, 23, 274, 243, 19, 20, 21, 22,505, 506,281,646,151,1061, 1062, 1063, 1064);
 		$data['palabras'] = $this->palabras_model->get_items_especificos($this->session->userdata('idi_code'), $pal_ids);
 
 		$data['description'] = mostrar_palabra(118, $data['palabras']);
@@ -67,6 +67,38 @@ class Pages extends CI_Controller {
 		//echo $data['keywords'];
 		
 		$this->load->view(self::$solapa.'/index', $data);
+    }
+    
+    public function como_funciona()
+	{
+		$data['idiomas'] = $this->idiomas_model->get_items($this->session->userdata('idi_code'));
+		$data['idiomas_completos'] = $this->idiomas_model->get_items_completos();
+		$data['paises'] = $this->paises_model->get_items($this->session->userdata('idi_code'));
+		//$data['palabras'] = $this->palabras_model->get_items($this->session->userdata('idi_code'));
+		$pal_ids = array(118, 52, 53, 54, 55, 107, 50, 51, 93, 119, 482, 493, 339, 56, 24, 23, 274, 243, 19, 20, 21, 22);
+		$data['palabras'] = $this->palabras_model->get_items_especificos($this->session->userdata('idi_code'), $pal_ids);
+
+		$data['description'] = mostrar_palabra(118, $data['palabras']);
+		$data['keywords'] = mostrar_palabra(52, $data['palabras']).",".mostrar_palabra(53, $data['palabras']).",".mostrar_palabra(54, $data['palabras']).",".mostrar_palabra(55, $data['palabras']).",".mostrar_palabra(107, $data['palabras']).",".mostrar_palabra(50, $data['palabras']).",".mostrar_palabra(51, $data['palabras']).",".mostrar_palabra(93, $data['palabras']);
+        $data['error'] = "";
+        
+		$this->load->view(self::$solapa.'/como_funciona', $data);
+    }
+    
+    public function conocenos()
+	{
+		$data['idiomas'] = $this->idiomas_model->get_items($this->session->userdata('idi_code'));
+		$data['idiomas_completos'] = $this->idiomas_model->get_items_completos();
+		$data['paises'] = $this->paises_model->get_items($this->session->userdata('idi_code'));
+		//$data['palabras'] = $this->palabras_model->get_items($this->session->userdata('idi_code'));
+		$pal_ids = array(118, 52, 53, 54, 55, 107, 50, 51, 93, 119, 482, 493, 339, 56, 24, 23, 274, 243, 19, 20, 21, 22);
+		$data['palabras'] = $this->palabras_model->get_items_especificos($this->session->userdata('idi_code'), $pal_ids);
+
+		$data['description'] = mostrar_palabra(118, $data['palabras']);
+		$data['keywords'] = mostrar_palabra(52, $data['palabras']).",".mostrar_palabra(53, $data['palabras']).",".mostrar_palabra(54, $data['palabras']).",".mostrar_palabra(55, $data['palabras']).",".mostrar_palabra(107, $data['palabras']).",".mostrar_palabra(50, $data['palabras']).",".mostrar_palabra(51, $data['palabras']).",".mostrar_palabra(93, $data['palabras']);
+        $data['error'] = "";
+        
+		$this->load->view(self::$solapa.'/conocenos', $data);
 	}
 
 	public function nosotros()
@@ -88,8 +120,6 @@ class Pages extends CI_Controller {
 
 	public function mundo()
 	{
-		$data['idiomas'] = $this->idiomas_model->get_items($this->session->userdata('idi_code'));
-		$data['paises'] = $this->paises_model->get_items($this->session->userdata('idi_code'));
 		$data['palabras'] = $this->palabras_model->get_items($this->session->userdata('idi_code'));
 		$data['title'] = mostrar_palabra(112, $data['palabras']);
 		$data['description'] = mostrar_palabra(118, $data['palabras']);
@@ -228,7 +258,7 @@ class Pages extends CI_Controller {
 
 		if($this->agent->is_mobile())
 		{
-		    redirect('http://www.nocnode.com/Mobile', 'refresh');
+		    redirect('http://www.Sistema.com/Mobile', 'refresh');
 		}
 	}
 
@@ -312,101 +342,6 @@ class Pages extends CI_Controller {
 		$data['result'] = $resultados;
 		
 		echo json_encode($data);
-	}
-
-	public function robar_uncomtrade()
-	{
-		//CRON_JOB
-		//wget --no-check-certificate -O /dev/null https://www.nocnode.com/pages/procesa_excel >/dev/null 2>&1
-		for($i=0;$i<6276;$i++)
-		{
-			$this->load->model('aranceles_model');
-			$this->load->model('comtrade_model');
-
-			//set_time_limit(0);
-			$termino = false;
-			$anio = 2010;
-			$destino = 0; //world
-			$last_comtrade = $this->comtrade_model->get_last($anio);
-
-			if(!$last_comtrade)
-			{
-				$next_pais = $this->paises_model->get_next();
-				$next_arancel = $this->aranceles_model->get_next();
-
-				$origen = $next_pais['ctry_code3'];
-				$rg = 1; //primero import
-				$ara = $next_arancel['ara_id'];
-			}
-			else
-			{
-				if($last_comtrade['com_tipo'] == 1)
-				{
-					$origen = $last_comtrade['com_origen'];
-					$rg = 2; //export
-					$ara = $last_comtrade['com_arancel'];
-				}
-				else//($last_comtrade['com_tipo'] == 2)
-				{
-					$next_arancel = $this->aranceles_model->get_next($last_comtrade['com_arancel']);
-
-					$rg = 1; //import
-
-					if($next_arancel)
-					{
-						$origen = $last_comtrade['com_origen'];
-						$ara = $next_arancel['ara_id'];
-					}
-					else
-					{
-						$next_pais = $this->paises_model->get_next($last_comtrade['com_origen']);
-						if(!$next_pais)
-						{
-							$termino = true;
-						}
-						$origen = $next_pais['ctry_code3'];
-						$next_arancel = $this->aranceles_model->get_next();
-						$ara = $next_arancel['ara_id'];
-					}
-				}
-			}
-
-			if(!$termino)
-			{
-				echo $ara;
-				$json = file_get_contents("http://comtrade.un.org/api/get?type=C&freq=A&px=HS&ps=".$anio."&r=".$origen."&p=".$destino."&rg=".$rg."&cc=".$ara."&fmt=json");
-		        $data = json_decode($json);
-
-		        if(count($data->dataset)>0)
-		        {
-		        	$result = $this->comtrade_model->set_item($anio, $origen, $destino, $rg, $ara, $data->dataset[0]->TradeQuantity, $data->dataset[0]->TradeValue);
-		        	if($result)
-		        	{
-		        		echo " - Value: ".$data->dataset[0]->TradeValue." - qty: ".$data->dataset[0]->TradeQuantity."<br>";
-		        	}
-		        	else
-		        	{
-		        		echo " - Error al insertar con datos<br>";
-		        	}
-		        }
-		        else
-		        {
-		        	$result = $this->comtrade_model->set_item($anio, $origen, $destino, $rg, $ara);
-		        	if($result)
-		        	{
-		        		echo " - No hay nada<br>";
-		        	}
-		        	else
-		        	{
-		        		echo " - Error al insertar vacio<br>";
-		        	}
-		        }
-	    	}
-	    	else
-	    	{
-	    		echo "termino<br>";
-	    	}
-    	}
 	}
 
 	public function acceso($extra = "")

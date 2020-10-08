@@ -90,7 +90,6 @@ class Login extends CI_Controller {
                 }
                 else
                 {
-					
                     $return['error'] = TRUE;
                     $return['data'] = '<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'.mostrar_palabra(202, $palabras).'</div>';
                 }
@@ -125,8 +124,11 @@ class Login extends CI_Controller {
         $this->form_validation->set_rules('clave2', mostrar_palabra(6, $palabras).' '.mostrar_palabra(5, $palabras), 'trim|required|matches[clave]');
         $this->form_validation->set_rules('pais', mostrar_palabra(2, $palabras), 'required');
         $this->form_validation->set_rules('idioma', mostrar_palabra(3, $palabras), 'required');
-        $this->form_validation->set_rules('acepto', mostrar_palabra(170, $palabras), 'required');
-
+        $this->form_validation->set_rules('acepto', mostrar_palabra(172, $palabras), 'required');
+        if ($this->form_validation->set_rules('acepto', mostrar_palabra(172, $palabras), 'required')) {
+            $this->form_validation->set_message('required', '{field}');
+        }
+       
         if ($this->form_validation->run() !== FALSE)
         //if($this->input->post('mail') != "" && $this->input->post('clave') != "")
         {
@@ -173,7 +175,7 @@ class Login extends CI_Controller {
             }
             else
             {
-                $user_id = $this->user_model->set_item($this->input->post('mail'), $this->input->post('clave'), $this->input->post('idioma'), $this->input->post('pais'), 0, "perfil.jpg");
+                $user_id = $this->user_model->set_item($this->input->post('mail'), $this->input->post('clave'), $this->input->post('idioma'), $this->input->post('pais'), 1, "perfil.jpg");
                 if($user_id)
                 {
                     $codigo = RandomString(4);
@@ -207,6 +209,7 @@ class Login extends CI_Controller {
         }
         else
         {
+            
             $return['error'] = TRUE;
             $return['data'] = validation_errors();
         }
@@ -407,7 +410,7 @@ class Login extends CI_Controller {
         else 
         {
             $url = $this->facebook->login_url();
-            //$url = "https://www.facebook.com/v2.8/dialog/oauth?client_id=2020830071527458&state=8ea9135c28f89dec2ed88dc8efade918&response_type=code&sdk=php-sdk-5.4.4&redirect_uri=https%3A%2F%2Fwww.nocnode.com%2Flogin%2Flogin_facebook&scope=public_profile%2Cemail";
+            //$url = "https://www.facebook.com/v2.8/dialog/oauth?client_id=2020830071527458&state=8ea9135c28f89dec2ed88dc8efade918&response_type=code&sdk=php-sdk-5.4.4&redirect_uri=https%3A%2F%2Fwww.Sistema.com%2Flogin%2Flogin_facebook&scope=public_profile%2Cemail";
             /*
             foreach ($_SESSION as $k=>$v)
             {                    
@@ -571,7 +574,7 @@ class Login extends CI_Controller {
                         
                         $titulo = str_replace("[USER MAIL]", $mail['mail_direccion'], $mail_info['mi_titulo']);
                         $mensaje1 = $mail_info['mi_cuerpo1'];
-                        $mensaje2 = str_replace("[NOCNODE MAIL]", "contact@nocnode.com", $mail_info['mi_cuerpo2']);
+                        $mensaje2 = str_replace("[SISTEMA MAIL]", "contact@Sistema.com", $mail_info['mi_cuerpo2']);
                         
                         mail_base($mail['mail_direccion'], $mail_info['mi_asunto'], $titulo, $mensaje1, $mensaje2);
 
@@ -611,14 +614,14 @@ class Login extends CI_Controller {
                 
                 $titulo = str_replace("[USER MAIL]", $this->input->post('mail'), $mail_info['mi_titulo']);
                 $mensaje1 = $mail_info['mi_cuerpo1'];
-                //https://www.nocnode.com/login/reset/13940/pEgA
+
                 $mensaje2 = str_replace("[LINK]", site_url()."login/reset/".$user['usr_id']."/".$mail['mail_codigo'], $mail_info['mi_cuerpo2']);
                 $mensaje2 = str_replace("[HOURS]", date('h:i'), $mensaje2);
                 $fecha = date('Y-m-d');
                 $nuevafecha = strtotime ( '+1 day' , strtotime ( $fecha ) ) ;
                 $nuevafecha = date ( 'Y-m-d' , $nuevafecha );
                 $mensaje2 = str_replace("[DAYS]", $nuevafecha, $mensaje2);
-                $mensaje2 = str_replace("[NOCNODE MAIL]", "contact@nocnode.com", $mensaje2);
+                $mensaje2 = str_replace("[SISTEMA MAIL]", "contact@Sistema.com", $mensaje2);
 
                 $result = mail_base($this->input->post('mail'), $mail_info['mi_asunto'], $titulo, $mensaje1, $mensaje2);
 
@@ -660,7 +663,5 @@ class Login extends CI_Controller {
 
         redirect('/pages', 'refresh');
     }
-	
-	
 
 }

@@ -267,37 +267,37 @@ $this->load->view('templates/head');
     ?>
 
 <script type="text/javascript">
-function cargar_grafico_plata()
-{
-    $.ajax({
-        url: "<?=site_url()?>pages/grafico_usuarios_ajax",
-        type: "GET",
-        dataType: "json",
-        success: function(data){
-            // Bar Chart
-            chart = Morris.Area({
-                element: 'morris-area-chart',
-                data: data.data,
-                xkey: 'period',
-                ykeys: ['usuarios', 'productos'],
-                labels: ['Usuarios', 'Productos'],
-                lineColors: ["#5CB85C", "#D9534F"],
-                pointSize: 2,
-                hideHover: 'auto',
-                resize: true
-            });
+    function cargar_grafico_plata()
+    {
+        $.ajax({
+            url: "<?=site_url()?>pages/grafico_usuarios_ajax",
+            type: "GET",
+            dataType: "json",
+            success: function(data){
+                // Bar Chart
+                chart = Morris.Area({
+                    element: 'morris-area-chart',
+                    data: data.data,
+                    xkey: 'period',
+                    ykeys: ['usuarios', 'productos'],
+                    labels: ['Usuarios', 'Productos'],
+                    lineColors: ["#5CB85C", "#D9534F"],
+                    pointSize: 2,
+                    hideHover: 'auto',
+                    resize: true
+                });
 
-            chart.on('click', function(i, row) {
-                location.href="<?=site_url()?>estadisticas/plata_mensual/"+row.period;
-            });
-        },
-       error: function(x, status, error){
-          alert("An error occurred: " + status + " nError: " + error);
-       }
-    });
-}
+                chart.on('click', function(i, row) {
+                    location.href="<?=site_url()?>estadisticas/plata_mensual/"+row.period;
+                });
+            },
+        error: function(x, status, error){
+            alert("An error occurred: " + status + " nError: " + error);
+        }
+        });
+    }
 
-cargar_grafico_plata();
+    cargar_grafico_plata();
 </script>
 
 </body>
