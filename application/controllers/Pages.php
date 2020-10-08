@@ -57,7 +57,7 @@ class Pages extends CI_Controller {
 		$data['idiomas_completos'] = $this->idiomas_model->get_items_completos();
 		$data['paises'] = $this->paises_model->get_items($this->session->userdata('idi_code'));
 		//$data['palabras'] = $this->palabras_model->get_items($this->session->userdata('idi_code'));
-		$pal_ids = array(118, 52, 53, 54, 55, 107, 50, 51, 93, 119, 482, 493, 339, 56, 24, 23, 274, 243, 19, 20, 21, 22);
+		$pal_ids = array(118, 52, 53, 54, 55, 107, 50, 51, 93, 119, 482, 493, 339, 56, 24, 23, 274, 243, 19, 20, 21, 22,505, 506,281,646,151,1061, 1062, 1063, 1064);
 		$data['palabras'] = $this->palabras_model->get_items_especificos($this->session->userdata('idi_code'), $pal_ids);
 
 		$data['description'] = mostrar_palabra(118, $data['palabras']);

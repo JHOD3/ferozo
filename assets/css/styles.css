@@ -179,7 +179,7 @@ a:hover, a:focus { color: #e0103a; }
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b00035', endColorstr='#ce2600',GradientType=0 ); 
 	color: white;
 	margin-bottom: 0;
-    padding-bottom: 214px;
+    padding-bottom: 20px;
 }
 .header h1 {
 	font-size: 40px;
@@ -1586,9 +1586,9 @@ RESPONSIVE
 .img-table {
     width: 28rem;
 }
-.text-interlineado{
+.text-interlineado {
     line-height: 1.5em;
-    text-transform: capitalize;
+    text-transform: inherit;
     font-family: inherit;
     font-size: 19px;
 }

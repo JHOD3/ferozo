@@ -93,6 +93,7 @@ if($this->session->userdata('idi_code') == 'ar')
     echo '<link href="'.base_url('assets/css/bootstrap-rtl.min.css').'" rel="stylesheet" type="text/css">';
 }
 ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap-grid.min.css">
 <!-- Icons -->
 <link href="<?=base_url()?>assets/css/fontawesome-all.min.css" rel="stylesheet">
 <link href="<?=base_url()?>assets/css/icomoon.css" rel="stylesheet">

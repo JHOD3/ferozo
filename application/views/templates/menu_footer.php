@@ -16,7 +16,7 @@ $palabras_footer = $this->palabras_model->get_items_especificos($this->session->
 				{
 					echo '<a href="'.site_url('resultados').'">'.mostrar_palabra(1, $palabras_footer).'</a> - ';
 				}
-				//echo '<a href="'.site_url('pages/nosotros').'">'.mostrar_palabra(103, $palabras_footer).'</a><br>';
+				echo '<a href="'.site_url('pages/nosotros').'">'.mostrar_palabra(103, $palabras_footer).'</a> -';
 				echo '<a href="'.site_url('pages/mundo').'">'.mostrar_palabra(112, $palabras_footer).'</a> - ';
 				echo '<a href="'.site_url('pages/servicio').'">'.mostrar_palabra(116, $palabras_footer).'</a> - ';
 				echo '<a href="'.site_url('pages/privacidad').'">'.mostrar_palabra(117, $palabras_footer).'</a> - ';

@@ -13,7 +13,7 @@
                             <p class="lead text-left">
                                 <?=mostrar_palabra(493, $palabras)?>
                             </p>
-                            <a href="#" class="btn btn-light">Comenzar</a>
+                            <a href="#" class="btn btn-light"><?=mostrar_palabra(281, $palabras)?></a>
                         </div>
                         <div class="col-md-6 col-lg-8">
                             <div class="owl-carousel owl-carousel-header owl-theme">
@@ -55,8 +55,7 @@
                 </div>
                 <div class="col-md-7 d-flex align-items-center">
                     <h5 class="text-interlineado text-color-muted text-md-left text-center">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
-                        nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
+                        <?=mostrar_palabra(1061, $palabras)?>
                     </h5>
                 </div>
             </div>
@@ -64,13 +63,11 @@
         <section class="background-section-3">
             <div class="container py-5 d-md-flex d-block">
                 <div class="col-md-4 col-12">
-                    <h3 class="text-white sub-title">CONOCÉ NUESTRA <br class="d-none d-md-block"> NUEVA HERRAMIENTA</h3>
+                    <h3 class="text-white sub-title"><?=mostrar_palabra(646, $palabras)?></h3>
                     <h6 class="text-white text-center text-md-left">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed 
-                        diam nonummy nibh euismod tincidunt ut laoreet dolore 
-                        magna aliquam erat volutpat. 
+                        <?=mostrar_palabra(1062, $palabras)?>
                     </h6>
-                    <a href="" class="btn btn-light mt-3 mx-auto ml-md-0 d-block col-4"> Ver mas</a>
+                    <a href="" class="btn btn-light mt-3 mx-auto ml-md-0 d-block col-4"><?=mostrar_palabra(151, $palabras)?></a>
                 </div>
                 <div class="col-md-8 col-12 pt-md-0 pt-5">
                     <embed src="<?=base_url('assets/images/table-section-3.png')?>" class="img-table mx-auto d-block">
@@ -83,19 +80,17 @@
                     <embed src="<?=base_url('assets/images/background-section-4.svg')?>" class="img-table">
                 </div>
                 <div class="col-md-6 col-12 padding-center-section-4">
-                    <h3 class="text-danger sub-title">PUBLICITÁ EN  <br class="d-none d-md-block"> NUESTRA PLATAFORMA </h3>
+                    <h3 class="text-danger sub-title"><?=mostrar_palabra(505, $palabras)?></h3>
                     <h4 class="text-muted text-center text-md-left">
-                        Lorem ipsum dolor sit amet, consectetuer <br class="d-none d-md-block">
-                        adipiscing elit, sed diam nonummy nibh <br class="d-none d-md-block">
-                        euismod tincidunt ut. 
+                        <?=mostrar_palabra(506, $palabras)?>
                     </h4>
-                    <a href="" class="btn btn-danger mt-4 mx-auto ml-md-0 d-block col-4"> Ver mas</a>
+                    <a href="" class="btn btn-danger mt-4 mx-auto ml-md-0 d-block col-4"> <?=mostrar_palabra(151, $palabras)?></a>
                 </div>
             </div>
         </section>
         <section class="bg-light pt-5">
             <h5 class="text-interlineado text-color-muted text-center">
-                ULTIMAS PUBLICACIONES DE USUARIOS PREMIUM
+                <?=mostrar_palabra(1063, $palabras)?>
             </h5>
             <div class="col-12 pb-5 owl-carousel owl-carousel-1 owl-theme">
                 <div class="px-0">
@@ -411,7 +406,7 @@
             </div>
             <div class="background-section-4 pb-2">
                 <div class="text-center">
-                    <h3 class="text-danger">MÁS DE 50,000 USUARIOS SATISFECHOS</h3>
+                    <h3 class="text-danger"><?=mostrar_palabra(1064, $palabras)?></h3>
                     <div class="text-muted">
                         <h4 class="mt-5">"I've never seen such an innovative tool."</h4>
                         <p class="font-weight-bold">Clayton F, Hyundai</p>
